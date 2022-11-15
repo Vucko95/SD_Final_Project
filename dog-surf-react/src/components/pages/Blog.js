@@ -1,6 +1,10 @@
 import React from 'react';
 import '../../App.css';
+import Editinfo from '../editinfo';
+
 
 export default function Blog() {
-  return <h1 className='Blog'>Blog</h1>;
+  return  <Editinfo />
 }
+
+

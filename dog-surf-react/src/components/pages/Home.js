@@ -1,14 +1,10 @@
-
 import React from 'react';
 import '../../App.css';
+import Login from '../login';
 
 
-function Home() {
-  return (
-    <>
-Hello
-    </>
-  );
+export default function Home() {
+  return  <Login />
 }
 
-export default Home;
+

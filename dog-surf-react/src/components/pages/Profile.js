@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../App.css';
+import Register from '../register';
+
 
 export default function Profile() {
-  return <h1 className='Profile'>Profile</h1>;
+  return  <Register />
 }
