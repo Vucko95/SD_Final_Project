@@ -1,0 +1,15 @@
+.listing_box {
+    /* align-items: center; */
+    width: 20%;
+    position: absolute;
+
+    
+}
+
+.listing_text_headlines {
+    
+    font-size: 25px;
+    vertical-align: middle;
+}
+.label_l {
+}

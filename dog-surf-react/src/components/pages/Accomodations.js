@@ -9,7 +9,6 @@ export default function Accomodations(){
   return (
   <div>
      <Listproperty />
-      <Login />
   </div>
   );
 }

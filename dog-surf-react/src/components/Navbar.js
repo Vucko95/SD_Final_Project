@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import Popout from './popout';
+// import Popout from './popout';
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.min.js"
-
-export default function Navbar() {
-
+// import Popup from './Popup';
+export default function Navbar({ handleLoginClick, handleRegisterClick}) {
+  const handleClick = () => {
+    handleLoginClick();
+  }
+  const handleClick2 = () => {
+    handleRegisterClick();
+  }
   return (
     <div>
       <nav className='navbar'>
@@ -19,17 +24,18 @@ export default function Navbar() {
 </li>
             <li className='nav-item'>
               <Link to='/' className='nav-links' >
-                About
+                Home
               </Link>
             </li>
             <li className='nav-item'>
               <Link
                 to='/accomodations'
                 className='nav-links'
-              >
+                >
                 Accomodations
               </Link>
             </li>
+
             <li className='nav-item'>
               <Link
                 to='/profile'
@@ -49,16 +55,23 @@ export default function Navbar() {
             </li>
             <li className='nav-item'>
 
-             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-       Sing Up
+             <button onClick={handleClick}  type="button" class="btn-login btn btn-primary " data-toggle="modal" data-target="#exampleModalCenter">
+       Login
          </button>
+
+              </li>
+            <li className='nav-item'>
+
+             <button onClick={handleClick2}  type="button" class="btn-login btn btn-primary " data-toggle="modal" data-target="#exampleModalCenter">
+       Register
+         </button>
+
               </li>
 
 
           </ul>
         </div>
       </nav>
-      <Popout>text </Popout>
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -80,4 +93,5 @@ export default function Navbar() {
     </div>
   );
 }
+
 

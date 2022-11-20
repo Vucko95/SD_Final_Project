@@ -1,10 +1,10 @@
 import React from 'react';
 import '../../App.css';
-import Editinfo from '../editinfo';
+import Listings from '../listings';
 
 
 export default function Blog() {
-  return  <Editinfo />
+  return  <Listings />
 }
 
 

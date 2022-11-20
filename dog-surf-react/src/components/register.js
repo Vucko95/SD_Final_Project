@@ -2,11 +2,12 @@ import React from "react"
 import '../App.css';
 import './register.css';
  
-export default function Register (props) {
+const Register = ({ isShowRegister }) => {
 
 
   return (
     <div className="Auth-form-container">
+       <div className={`${isShowRegister ? "active" : ""} show`}>
       <form className="Auth-form">
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Register</h3>
@@ -76,6 +77,8 @@ export default function Register (props) {
           </p>
         </div>
       </form>
+      </div>
     </div>
   )
 }
+export default Register;

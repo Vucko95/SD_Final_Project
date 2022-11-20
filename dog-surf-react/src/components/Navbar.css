@@ -80,6 +80,10 @@
     left: 0;
     transform: translate(25%, 50%);
   }
-
+.btn-login {
+  background-color: aliceblue;
+  color: aliceblue;
+  font: optional;
+}
   
 }

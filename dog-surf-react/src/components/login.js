@@ -2,11 +2,14 @@ import React from "react"
 import '../App.css';
 import './login.css';
  
-export default function Login (props) {
+ const Login = ({ isShowLogin }) => {
 
 
   return (
     <div className="Auth-form-container">
+          <div className={`${isShowLogin ? "active" : ""} show`}>
+      <div className="login-form">
+        <div className="form-box solid">
       <form className="Auth-form">
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign In</h3>
@@ -27,15 +30,20 @@ export default function Login (props) {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn  btn-primary">
               Submit
             </button>
           </div>
-          <p className="forgot-password text-right mt-2">
+          <label className="forgot-password text-right mt-2">
             Forgot <a href="/home">password?</a>
-          </p>
+          </label>
         </div>
+
       </form>
+      </div>
+      </div>
+      </div>
     </div>
   )
 }
+export default Login;

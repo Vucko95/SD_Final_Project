@@ -1,45 +1,44 @@
 import React from "react"
 // import '../App.css';
-import './editinfo.css';
+import './editproperty.css';
 
-export default function Editinfo (props) {
-
+export default function Editproperty (props) {
 
   return (
     <div className="Auth-form-container">
       <form className="Auth-form">
         <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Edit property</h3>
+          <h3 className="Auth-form-title">Edit Property</h3>
           <div className="form-group mt-3">
-            <label>Firstname</label>
+            <label>Property Location</label>
             <input
               type="text"
               className="form-control mt-1"
-              placeholder="Firstname"
+              placeholder="Property Location"
               />
           </div>
           <div className="form-group mt-3">
-            <label>Lastname</label>
+            <label>Property Address</label>
             <input
               type="text"
               className="form-control mt-1"
-              placeholder="Lastname"
+              placeholder="Property Address"
               />
           </div>
           <div className="form-group mt-3">
-            <label>City</label>
+            <label>Property Type</label>
             <input
               type="text"
               className="form-control mt-1"
-              placeholder="City"
+              placeholder="Property Type"
             />
           </div>
           <div className="form-group mt-3">
-            <label>Address</label>
+            <label>DATE</label>
             <input
               type="text"
               className="form-control mt-1"
-              placeholder="Address"
+              placeholder="DATE"
             />
           </div>
           <div className="d-grid gap-2 mt-3">
@@ -51,4 +50,5 @@ export default function Editinfo (props) {
       </form>
     </div>
   )
+  
 }

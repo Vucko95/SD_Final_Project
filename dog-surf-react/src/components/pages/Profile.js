@@ -1,8 +1,15 @@
 import React from 'react';
 import '../../App.css';
-import Register from '../register';
+import Editinfo from '../editinfo';
+import Editproperty from '../editproperty';
 
 
 export default function Profile() {
-  return  <Register />
+  return (
+    <div>
+    <Editinfo /> 
+    <Editproperty />
+ </div>
+    )
+    
 }
