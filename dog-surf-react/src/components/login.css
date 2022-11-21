@@ -1,6 +1,7 @@
 .Auth-form-container {
   margin-top: 7vh;
   display: flex;
+  position: absolute;
   justify-content: center;
   align-items: center;
   width: 100%;

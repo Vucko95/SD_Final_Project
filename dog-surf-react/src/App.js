@@ -34,8 +34,8 @@ export default function App(){
         <Router >
         {/* <Navbar/> */}
         <Navbar handleLoginClick={handleLoginClick} handleRegisterClick={handleRegisterClick} />
-        {/* <Login isShowLogin={isShowLogin} />
-        <Register isShowRegister={isShowRegister} /> */}
+        <Login isShowLogin={isShowLogin} />
+        <Register isShowRegister={isShowRegister} />
                 <Switch>
                     <Route path='/' exact component={Home}/>
                     <Route path='/accomodations' exact component={Accomodations}/>

@@ -1,15 +1,40 @@
+.listing_box_root {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    }
 .listing_box {
-    /* align-items: center; */
-    width: 20%;
-    position: absolute;
+    width: 80%;
+    /* position: absolute; */
+    border: 2px solid black;
 
     
 }
 
 .listing_text_headlines {
-    
+    display: flex;
     font-size: 25px;
     vertical-align: middle;
 }
 .label_l {
+}
+.db_input {
+    align-items: center;
+    border: 2px solid black;
+    padding-top: 30px;
+    /* padding-left: 20%; */
+    display: flex;
+    padding-bottom: 10px;
+    /* width: 80%; */
+}
+
+.button_d {
+   padding-left: 10px;
+   margin-right:1rem ;
+    /* margin-right: 50px; */
+}
+
+.button_invisible {
+    opacity: 0;
 }

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import dog_logo from '../images/dog_logo.png'
 // import Popout from './popout';
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.min.js"
@@ -16,12 +17,12 @@ export default function Navbar({ handleLoginClick, handleRegisterClick}) {
       <nav className='navbar'>
         <div className='navbar-container'>
           <ul className='nav-menu'>
-            <li>
+        
           <Link to='/' className='navbar-logo'>
-            DogSurf
+          <img src={dog_logo} alt="React Logo" className="logo" />
             <i class='topic_name' />
           </Link>
-</li>
+
             <li className='nav-item'>
               <Link to='/' className='nav-links' >
                 Home
@@ -53,6 +54,7 @@ export default function Navbar({ handleLoginClick, handleRegisterClick}) {
                 Blog
               </Link>
             </li>
+            <div className="nav_buttons">
             <li className='nav-item'>
 
              <button onClick={handleClick}  type="button" class="btn-login btn btn-primary " data-toggle="modal" data-target="#exampleModalCenter">
@@ -68,6 +70,7 @@ export default function Navbar({ handleLoginClick, handleRegisterClick}) {
 
               </li>
 
+            </div>
 
           </ul>
         </div>
