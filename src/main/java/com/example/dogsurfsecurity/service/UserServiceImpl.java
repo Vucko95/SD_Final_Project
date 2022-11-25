@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
     public void addRoleToUser(String username, String roleName) {
         log.info("Adding a Role {} to user {}" , roleName, username);
         User user = userRepo.findByUsername(username);
-        Role role = roleRepo.findbyName(roleName);
+        Role role = roleRepo.findByName(roleName);
 //        ADDING ROLE TO THE USER and saving in DB
         user.getRoles().add(role);
 
