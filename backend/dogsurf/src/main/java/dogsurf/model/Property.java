@@ -1,9 +1,7 @@
 package dogsurf.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,9 +14,13 @@ public class Property {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-
+    @Column(name = "propertyLocation", nullable = false)
     private String propertyLocation;
+    @Column(name = "propertyAddress", nullable = false)
     private String propertyAddress;
 
-
+    @ToString.Exclude
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
