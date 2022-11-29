@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: dogsurf
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: user
+    password: password
+    url: jdbc:mysql://localhost:23306/userservice
+  jpa:
+    hibernate:
+      ddl-auto: create-drop # DEV
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+
+server:
+  port: 8090
