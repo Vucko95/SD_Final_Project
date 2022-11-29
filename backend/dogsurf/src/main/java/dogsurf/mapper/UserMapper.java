@@ -11,7 +11,7 @@ public interface UserMapper {
 
     UserResponse toDto(User entity);
 
-    @Mapping(target = "Role", constant = "USER")
+    @Mapping(target = "role", constant = "USER")
     User toEntity(CreateUserRequest userRequest);
 
 

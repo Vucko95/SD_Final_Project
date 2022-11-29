@@ -4,7 +4,7 @@ import com.github.javafaker.Faker;
 import dogsurf.model.Property;
 import dogsurf.model.Role;
 import dogsurf.model.User;
-import dogsurf.repository.UserRepo;
+import dogsurf.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,7 +18,7 @@ import java.util.stream.IntStream;
 @RequiredArgsConstructor
 public class DbInitializer implements CommandLineRunner {
 
-    private final UserRepo userRepository;
+    private final UserRepository userRepository;
     private final Faker faker = Faker.instance(new Locale("en-GB"));
 
     @Override

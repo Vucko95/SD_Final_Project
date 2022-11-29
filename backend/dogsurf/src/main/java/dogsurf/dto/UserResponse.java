@@ -1,7 +1,9 @@
 package dogsurf.dto;
 
 import dogsurf.model.Role;
+import lombok.Data;
 
+@Data
 public class UserResponse {
     private Long id;
     private String username;
