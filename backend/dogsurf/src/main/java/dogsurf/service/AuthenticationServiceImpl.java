@@ -29,10 +29,16 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         );
 
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
-        String jwt = jwtProvider.generateToken(userPrincipal);
+//        String jwt = jwtProvider.generateToken(userPrincipal);
+        String jwt = jwtProvider.generateAccessToken(userPrincipal);
+        String refreshToken = jwtProvider.generateRefreshToken(userPrincipal);
+
         UserResponse userResponse = userMapper.toDto(userPrincipal.getUser());
         return JwtResponse.builder()
                 .accessToken(jwt)
+                .expiresIn(jwtProvider.getExpiresInSeconds(jwt))
+                .refreshToken(refreshToken)
+                .refreshExpiresIn(jwtProvider.getExpiresInSeconds(refreshToken))
                 .userResponse(userResponse)
                 .build();
     }

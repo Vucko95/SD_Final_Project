@@ -27,9 +27,11 @@ public class JwtProviderImpl implements JwtProvider {
     private String jwtSecret;
     @Value("${app.jwt.expiration-in-ms:3000}")
     private Long jwtExpirationInMs;
+    @Value("${app.jwt.refresh-expiration-in-ms:86400000}")
+    private Long refreshExpirationInMs;
 
     @Override
-    public String generateToken(UserPrincipal auth) {
+    public String generateAccessToken(UserPrincipal auth) {
         String authorities = auth.getAuthorities()
                 .stream()
                 .map(GrantedAuthority::getAuthority)
@@ -41,9 +43,18 @@ public class JwtProviderImpl implements JwtProvider {
                 .setSubject(auth.getUsername())
                 .claim("roles", authorities)
                 .claim("userId", auth.getId())
+                .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + jwtExpirationInMs))
                 .signWith(key, SignatureAlgorithm.HS512)
                 .compact();
+    }
+
+    @Override
+    public Long getExpiresInSeconds(String token) {
+        Claims claims = extractClaims(token);
+        long expTime = claims.getExpiration().getTime();
+        long currentTime = new Date().getTime();
+        return Math.round(1.0 * (expTime - currentTime) / 1000);
     }
 
     @Override
@@ -83,10 +94,25 @@ public class JwtProviderImpl implements JwtProvider {
 
         return !claims.getExpiration().before(new Date());
     }
+    @Override
+    public String generateRefreshToken(UserPrincipal auth) {
 
+        Key key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
+
+        return Jwts.builder()
+                .setSubject(auth.getUsername())
+                .claim("userId", auth.getId())
+                .claim("typ", "Refresh")
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + refreshExpirationInMs))
+                .signWith(key, SignatureAlgorithm.HS512)
+                .compact();
+    }
     private Claims extractClaims(HttpServletRequest request) {
         String token = SecurityUtils.extractAuthTokenFromRequest(request);
-
+        return extractClaims(token);
+    }
+    private Claims extractClaims(String token) {
         if (token == null) {
             return null;
         }
