@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "properties")
 public class Property {
     @Id
