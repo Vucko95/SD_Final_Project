@@ -18,7 +18,8 @@ public class User {
     private Long id;
     @Column(name = "username", unique = true, nullable = false, length = 255)
     private String username;
-    @Column(name = "password", nullable = false)
+//    @Column(name = "password", nullable = false)
+    @Column(name = "password")
     private String password;
     @Column(name = "email", nullable = false)
     private String email;
@@ -33,10 +34,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private Role role;
-
-
-
-
 
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
