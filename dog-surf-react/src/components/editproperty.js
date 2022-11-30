@@ -5,10 +5,11 @@ import './editproperty.css';
 export default function Editproperty (props) {
 
   return (
-    <div className="Auth-form-container">
+    <div className="Edit_property_box">
+<div className="Auth-form-container">
       <form className="Auth-form">
         <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Edit Property</h3>
+          <h3 className="Auth-form-title">ADD / EDIT Property</h3>
           <div className="form-group mt-3">
             <label>Property Location</label>
             <input
@@ -25,14 +26,7 @@ export default function Editproperty (props) {
               placeholder="Property Address"
               />
           </div>
-          <div className="form-group mt-3">
-            <label>Property Type</label>
-            <input
-              type="text"
-              className="form-control mt-1"
-              placeholder="Property Type"
-            />
-          </div>
+
           <div className="form-group mt-3">
             <label>DATE</label>
             <input
@@ -48,7 +42,8 @@ export default function Editproperty (props) {
           </div>
         </div>
       </form>
-    </div>
+      </div>
+      </div>
   )
   
 }

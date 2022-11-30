@@ -17,7 +17,7 @@ export default function Listings (props) {
           <div className="listing_text_headlines">
             <label className="label_l">Property Location</label>
             <label className="label_l">Property address</label>
-            <label className="label_l">Property Type</label>
+            {/* <label className="label_l">Property Type</label> */}
             <label className="label_l">Date</label>
             <button className="button_invisible ">BOOK</button>
           </div>
@@ -27,7 +27,7 @@ export default function Listings (props) {
           <label className="label_d">Text1</label>
           <label className="label_d">Text1</label>
           <label className="label_d">Text1</label>
-          <label className="label_d">Text1</label>
+          {/* <label className="label_d">Text1</label> */}
           <button className="button_d btn btn-primary">BOOK</button>
           
           </div>
@@ -37,7 +37,7 @@ export default function Listings (props) {
           <label className="label_d">Text1</label>
           <label className="label_d">Text1</label>
           <label className="label_d">Text1</label>
-          <label className="label_d">Text1</label>
+          {/* <label className="label_d">Text1</label> */}
           <button className="button_d btn btn-primary">BOOK</button>
           
           </div>
@@ -47,7 +47,7 @@ export default function Listings (props) {
 <label className="label_d">Text1</label>
 <label className="label_d">Text1</label>
 <label className="label_d">Text1</label>
-<label className="label_d">Text1</label>
+{/* <label className="label_d">Text1</label> */}
 <button className="button_d btn btn-primary">BOOK</button>
 
 </div>
@@ -57,7 +57,7 @@ export default function Listings (props) {
 <label className="label_d">Text1</label>
 <label className="label_d">Text1</label>
 <label className="label_d">Text1</label>
-<label className="label_d">Text1</label>
+{/* <label className="label_d">Text1</label> */}
 <button className="button_d btn btn-primary">BOOK</button>
 
 </div>
@@ -67,7 +67,7 @@ export default function Listings (props) {
 <label className="label_d">Text1</label>
 <label className="label_d">Text1</label>
 <label className="label_d">Text1</label>
-<label className="label_d">Text1</label>
+{/* <label className="label_d">Text1</label> */}
 <button className="button_d btn btn-primary">BOOK</button>
 
 </div>
@@ -77,7 +77,7 @@ export default function Listings (props) {
 <label className="label_d">Text1</label>
 <label className="label_d">Text1</label>
 <label className="label_d">Text1</label>
-<label className="label_d">Text1</label>
+{/* <label className="label_d">Text1</label> */}
 <button className="button_d btn btn-primary">BOOK</button>
 
 </div>

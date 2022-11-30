@@ -7,7 +7,7 @@ import Editproperty from '../editproperty';
 export default function Profile() {
   return (
     <div>
-    <Editinfo /> 
+    <Editinfo />  
     <Editproperty />
  </div>
     )
