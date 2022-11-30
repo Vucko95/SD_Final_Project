@@ -8,6 +8,7 @@ import dogsurf.model.User;
 import dogsurf.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -19,7 +20,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
-
+    private final PasswordEncoder passwordEncoder;
     public List<UserResponse> getAllUsers(){
         return userRepository
                 .findAll()
@@ -35,6 +36,9 @@ public class UserService {
     }
     public UserResponse createNewUser(CreateUserRequest userRequest) {
         User user = userMapper.toEntity(userRequest);
+//        String rawPassword = userRequest.getPassword();
+//        String encodedPassword = passwordEncoder.encode(rawPassword);
+//        user.setPassword(encodedPassword);
         User saved = userRepository.save(user);
         return userMapper.toDto(saved);
     }

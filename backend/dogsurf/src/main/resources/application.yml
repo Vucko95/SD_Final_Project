@@ -14,3 +14,8 @@ spring:
 
 server:
   port: 8090
+
+app:
+  jwt:
+    secret: eyJhbGciOiJSUzI1NiIsImFscGhhIjo5MTkzN30.eyJpc3MiOiJEaW5vQ2hpZXNhLmdpdGh1Yi5pbyIsInN1YiI6ImFsbWEiLCJhdWQiOiJuYXRhbGlhIiwiaWF0IjoxNjY5ODE3NDEzLCJleHAiOjE2Njk4MTgwMTMsInZlcnNpb24iOnRydWV9.eOOVd3DOI4pahAyOLAeZJrgB8tsFPNsPjN1UIV6e1ERrJl40A6Z-K-al_Dmtr7sjbHVtzqlNjcUe5Ps4H_E9K_1OSwqu2MgjU1aGq4fXisdGxtMX-wQ5XgmNs2HY1fBN1ds1W8RsOowwSq8lB6SdkDh9DqQVJ2FDSISyJDKy1HbwuWHXiVcm2APBefE4kyLv_e5Fzd3L1TXc__vl-xrh-utIG2E_srTivN4stj4u5gutXdV8RG0BdE-OEJ1-uRXh_f-enPoENjTIJswhOZZuIQTrU0J8RUwnm1JGtXG9C1OAawfSfELmYqL1uRjwj-KiD1BI7p-rPkKe1cY3tOji4Q
+    expiration-in-ms: 3000
