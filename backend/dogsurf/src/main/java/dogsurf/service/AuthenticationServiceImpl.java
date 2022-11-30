@@ -1,7 +1,6 @@
 package dogsurf.service;
 
-import dogsurf.dto.CreateUserRequest;
-import dogsurf.dto.RegisterRequest;
+import dogsurf.dto.*;
 import dogsurf.mapper.UserMapper;
 import dogsurf.model.User;
 import dogsurf.repository.UserRepository;
@@ -11,8 +10,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import dogsurf.dto.JwtResponse;
-import dogsurf.dto.LoginRequest;
 import dogsurf.security.JwtProvider;
 import dogsurf.security.UserPrincipal;
 
@@ -33,9 +30,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
         String jwt = jwtProvider.generateToken(userPrincipal);
-
+        UserResponse userResponse = userMapper.toDto(userPrincipal.getUser());
         return JwtResponse.builder()
                 .accessToken(jwt)
+                .userResponse(userResponse)
                 .build();
     }
 
