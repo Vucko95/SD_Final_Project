@@ -6,6 +6,8 @@ import dogsurf.service.PropertyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
@@ -18,12 +20,12 @@ public class PropertyController {
     }
 
     @PostMapping("/{userId}/property")
-    public PropertyResponse createPropertyOfUser(@PathVariable Long userId, @RequestBody PropertyRequest property) {
+    public PropertyResponse createPropertyOfUser(@PathVariable Long userId,@Valid @RequestBody PropertyRequest property) {
         return propertyService.createPropertyOfUser(userId, property);
     }
 
     @PutMapping("/{userId}/property")
-    public PropertyResponse updatePropertyOfUser(@PathVariable Long userId, @RequestBody PropertyRequest property) {
+    public PropertyResponse updatePropertyOfUser(@PathVariable Long userId,@Valid @RequestBody PropertyRequest property) {
         return propertyService.updatePropertyOfUser(userId, property);
     }
 }

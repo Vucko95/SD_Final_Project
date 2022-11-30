@@ -8,6 +8,7 @@ import dogsurf.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -27,12 +28,12 @@ public class UserController {
     }
 
     @PostMapping
-    public UserResponse createUser(@RequestBody CreateUserRequest user){
+    public UserResponse createUser(@Valid @RequestBody CreateUserRequest user){
         return userService.createNewUser(user);
     }
 
     @PutMapping("{id}")
-    public UserResponse updateUser(@PathVariable Long id, @RequestBody UpdateUserRequest user) {
+    public UserResponse updateUser(@PathVariable Long id,@Valid @RequestBody UpdateUserRequest user) {
         return userService.updateUser(id, user);
     }
 
