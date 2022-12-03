@@ -4,12 +4,13 @@ import './login.css';
  
  const Login = ({ isShowLogin }) => {
 
-  let loginData = {
-    'username': 'user1',
-    'password': 'pass1'
-}
-
-function loginClick() {
+//   let loginData = {
+//     'username': 'user1',
+//     'password': 'pass1'
+// }
+function login(loginData)
+// function loginClick() 
+{
 
   // Send data to the backend via POST
   fetch('http://localhost:8090/api/auth/login', {
@@ -28,32 +29,47 @@ function loginClick() {
 }
 
 
+function handleSubmit(event) {
+  // Prevent default behavior
+  event.preventDefault();
+  let loginData = {
+    username: event.target.username.value,
+    password: event.target.password.value
+  };
+  console.log("Login data JSON: " + JSON.stringify(loginData));
+  login(loginData);
+}
+
   return (
     <div className="Auth-form-container">
           <div className={`${isShowLogin ? "active" : ""} show`}>
       <div className="login-form">
         <div className="form-box solid">
-      <form className="Auth-form">
+      <form className="Auth-form" onSubmit={handleSubmit}>
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign In</h3>
           <div className="form-group mt-3">
-            <label>Email address</label>
+            <label>Username</label>
             <input
-              type="email"
+                id="username" 
+                name="username"
+                type="text"
               className="form-control mt-1"
-              placeholder="Enter email"
+              placeholder="Enter username"
             />
           </div>
           <div className="form-group mt-3">
             <label>Password</label>
             <input
-              type="password"
+              id="password" 
+              name="password"
+              type="text"
               className="form-control mt-1"
               placeholder="Enter password"
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="button" onClick={loginClick} className="btn  btn-primary">
+            <button type="submit"  className="btn  btn-primary">
               Submit
             </button>
           </div>
