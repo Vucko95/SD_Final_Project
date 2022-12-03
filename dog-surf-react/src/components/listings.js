@@ -7,6 +7,7 @@ import './listings.css';
   export default function Listings() {
     const API_URL = 'http://localhost:8090'
     const [properties, setProperties] = useState([]);
+    
 
     useEffect(() => {
       getAllProperties()
@@ -46,8 +47,8 @@ import './listings.css';
                 
                 { properties.map((property) => (
                     <div className='db_input' key={property.id}>
-                        <label className="label_d">{property.loc}</label>
-                        <label className="label_d">{property.addr}</label>
+                        <label className="label_d">{property.propertyLocation}</label>
+                        <label className="label_d">{property.propertyAddress}</label>
                         <button className="button_d btn btn-primary"
                               
                         >BOOK

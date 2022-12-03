@@ -6,12 +6,12 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: userservice
-      MYSQL_USER: testuser
-      MYSQL_PASSWORD: testpassword
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
     ports:
-      - 3306:3306
+      - 23306:3306
     volumes:
-      - mysql_db_data_container:/var/lib/mysql
+      - mysql_db_data_containerr:/var/lib/mysql
   adminer_container:
     image: adminer:latest
     environment:
@@ -20,9 +20,4 @@ services:
       - 8080:8080
 
 volumes:
-  mysql_db_data_container:
-
-  # mysql -uroot -prootpassword
-
-  # create user 'testuser'@'%' identified by 'testpassword';
-  # grant all on userservice.* to 'testuser'@'%';
+  mysql_db_data_containerr:
