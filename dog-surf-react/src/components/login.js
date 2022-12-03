@@ -4,6 +4,29 @@ import './login.css';
  
  const Login = ({ isShowLogin }) => {
 
+  let loginData = {
+    'username': 'user1',
+    'password': 'pass1'
+}
+
+function loginClick() {
+
+  // Send data to the backend via POST
+  fetch('http://localhost:8090/api/auth/login', {
+
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+      },
+      body: JSON.stringify(loginData)
+
+  })
+      .then(response => response.json())
+      .then(res => console.log(res));
+}
+
 
   return (
     <div className="Auth-form-container">
@@ -30,7 +53,7 @@ import './login.css';
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn  btn-primary">
+            <button type="button" onClick={loginClick} className="btn  btn-primary">
               Submit
             </button>
           </div>
