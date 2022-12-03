@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -26,6 +28,14 @@ public class PropertyService {
                 .orElseThrow(() -> new EntityNotFoundException("Property not found"));
     }
 
+
+    public List<PropertyResponse> getPropertyListing() {
+        return propertyRepository.findAll()
+                .stream()
+                .map(propertyMapper::toDto)
+                .collect(Collectors.toList());
+
+    }
 
 
     public PropertyResponse createPropertyOfUser(Long userId, PropertyRequest propertyRequest){

@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/users")
@@ -19,6 +20,10 @@ public class PropertyController {
         return propertyService.getPropertyByUserID(userId);
     }
 
+    @GetMapping("/properties")
+    public List<PropertyResponse> getPropertyListing() {
+        return propertyService.getPropertyListing();
+    }
     @PostMapping("/{userId}/property")
     public PropertyResponse createPropertyOfUser(@PathVariable Long userId,@Valid @RequestBody PropertyRequest property) {
         return propertyService.createPropertyOfUser(userId, property);
