@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import dog_logo from '../images/dog_logo.png'
+import dog_logo from '../images/sss.png'
 // import Popout from './popout';
-import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap/dist/js/bootstrap.min.js"
+
+import React, {useEffect, useState} from "react"
+
+
+// const access_tokenic = localStorage.getItem('access_token')
+
+
+
 // import Popup from './Popup';
 export default function Navbar({ handleLoginClick, handleRegisterClick}) {
   const handleClick = () => {
@@ -12,6 +18,24 @@ export default function Navbar({ handleLoginClick, handleRegisterClick}) {
   const handleClick2 = () => {
     handleRegisterClick();
   }
+
+
+  const [token, setToken] = useState(false);
+
+
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem('access_token'));
+      if (token) {
+        setToken(token);
+        console.log(token)
+        // console.log(token)
+      }
+
+  }, []);
+
+
+
+
   return (
     <div>
       <nav className='navbar'>
@@ -26,6 +50,7 @@ export default function Navbar({ handleLoginClick, handleRegisterClick}) {
             <li className='nav-item'>
               <Link to='/' className='nav-links' >
                 Home
+             
               </Link>
             </li>
             <li className='nav-item'>
@@ -54,6 +79,24 @@ export default function Navbar({ handleLoginClick, handleRegisterClick}) {
                 Blog
               </Link>
             </li>
+            
+           
+
+
+
+{/* { !token ?
+      <button   type="button" class="btn-login btn btn-primary " data-toggle="modal" data-target="#exampleModalCenter">
+      Logout
+        </button> 
+        :
+                <p>Not Logged</p>
+            } */}
+
+
+
+
+
+            {/* IF ACCESS TOKEN IN LOCAL STORAGE DISPLAY username  */}
             <div className="nav_buttons">
             <li className='nav-item'>
 

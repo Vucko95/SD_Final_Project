@@ -1,20 +1,23 @@
 import React from "react"
 import './homepage.css';
-import dog_logo from '../images/banner.jpg'
+import dog_logo from '../images/dognew.jpg'
 import dog1 from '../images/dog1.jpg'
 import dog2 from '../images/dog2.jpg'
 import dog3 from '../images/dog3.jpg'
+import cv2 from '../images/cv2.png'
 export default function homepage () {
     return (
         // BANNER
-        <div className="homepage_all">
-            <section class="banner"> 
-        <div className="Banner">
-        <img src={dog_logo}   />
-        <div className="Banner-text">
-        <p>Pet First Approach to Accomodation</p>
+<div className="homepage_all">
 
-        </div>
+        <section class="banner"> 
+        <div className="Banner">
+            <img src={dog_logo}   />
+            <img src={cv2}   />
+                <div className="Banner-text">
+                    <p>Pet First Approach to Accomodation</p>
+
+                </div>
         </div>
         </section>
 {/* // 3 Pictures */}
@@ -42,7 +45,7 @@ export default function homepage () {
 
 <section class="picture_layers"> 
 <div className="picture-layers">
-        <h2>Our happy dogs</h2>
+        <h1>Our happy dogs</h1>
     <div className="rows"> 
         <div className="col-in-row pic-in-row">
         <img src={dog1}   />
@@ -54,11 +57,13 @@ export default function homepage () {
         </div>
         <div className="col-in-row pic-in-row">
         <img src={dog3}   />
-        <h1>Nedeljko</h1>
+        <h1>Nedeljko Radic</h1>
         </div>
 
 
     </div>
+
+
 
 </div>
 </section>

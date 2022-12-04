@@ -1,7 +1,12 @@
 import React from "react"
 import '../App.css';
-import './login.css';
+import './login.scss';
  
+
+
+
+
+
  const Login = ({ isShowLogin }) => {
 
 //   let loginData = {
@@ -25,7 +30,11 @@ function login(loginData)
 
   })
       .then(response => response.json())
-      .then(res => console.log(res));
+      // .then(res => console.log(res));
+      .then ( res => {
+
+        localStorage.setItem('access_token', JSON.stringify(res.accessToken));
+})
 }
 
 
@@ -41,9 +50,9 @@ function handleSubmit(event) {
 }
 
   return (
-    <div className="Auth-form-container">
-          <div className={`${isShowLogin ? "active" : ""} show`}>
-      <div className="login-form">
+    <div className="Auth-form-container_login">
+          <div className={`${isShowLogin ? "active" : ""}show`}>
+      <div className="Auth-form_login">
         <div className="form-box solid">
       <form className="Auth-form" onSubmit={handleSubmit}>
         <div className="Auth-form-content">

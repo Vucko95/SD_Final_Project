@@ -32,6 +32,7 @@ import './listings.css';
 
 
     return (
+      
         <div className="listing_box_root">
             <div className="listing_box">
                 {/* <div className="Auth-form-container">
@@ -49,6 +50,7 @@ import './listings.css';
                     <div className='db_input' key={property.id}>
                         <label className="label_d">{property.propertyLocation}</label>
                         <label className="label_d">{property.propertyAddress}</label>
+                        <label className="label_d">{property.id}</label>
                         <button className="button_d btn btn-primary"
                               
                         >BOOK
@@ -58,6 +60,7 @@ import './listings.css';
 
             </div>
         </div>
+        
         // </div>
         //     </div>
     )

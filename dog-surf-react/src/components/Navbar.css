@@ -1,6 +1,8 @@
 .navbar {
   width: 100%;
-  background: linear-gradient(90deg, rgb(8, 22, 27) 0%, rgb(7, 8, 42) 100%);
+  /* background: linear-gradient(90deg, rgb(8, 22, 27) 0%, rgb(7, 8, 42) 100%); */
+  /* background: rgba(0, 0, 0, 0.466); */
+  background: black;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -14,8 +16,8 @@
 }
 
 .logo{
-  height: 4rem;
-  width: 8rem;
+  height: 3.5rem;
+  width: 4rem;
   /* max-width: 2rem; */
   /* overflow: hidden; */
 }

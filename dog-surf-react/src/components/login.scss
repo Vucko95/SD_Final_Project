@@ -1,13 +1,20 @@
-.Auth-form-container {
+.Auth-form-container_login {
   margin-top: 7vh;
   display: flex;
   position: absolute;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100%;  
 }
 
-.Auth-form {
+.show{
+  display: none;
+}
+.activeshow{
+  display: flex;
+}
+
+.Auth-form_login {
   width: 420px;
   box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
   padding-top: 30px;

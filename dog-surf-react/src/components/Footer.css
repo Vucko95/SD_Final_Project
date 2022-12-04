@@ -1,0 +1,148 @@
+.footer-content {
+    background: black;
+    color: rgb(121, 179, 14);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 20px 20px 10px 30px;
+    margin-top: 10px;
+    /* position: fixed; */
+    bottom: 0;
+}
+footer {
+    /* position: fixed; */
+}
+
+@media (max-height:800px) {
+    footer {
+        position: static;
+    }
+
+}
+
+@media (max-width: 880px) {
+    .footer-content .footer-left, .footer-content .footer-center, .footer-content .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .footer-content .footer-center i {
+        margin-left: 0;
+    }
+}    
+
+
+.footer-content .footer-left, .footer-content .footer-center, .footer-content .footer-right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-content .footer-left {
+    width: 30%;
+}
+
+.footer-content h3 {
+    color: #ffffff;
+    font: normal 55px 'Cookie', cursive;
+    margin: 0;
+}
+.footer-content p {
+    margin-top: 15px;
+}
+
+
+
+/* Footer links */
+
+.footer-content .footer-links {
+    color: rgb(121, 179, 14);
+    margin: 20px 0 12px;
+    /* justify-content: space-between; */
+}
+
+.footer-content .footer-links a {
+    display: inline-block;
+    justify-content: space-between;
+    /* line-height: 1.8; */
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+/* Footer Center */
+
+.footer-content .footer-center {
+    width: 35%;
+
+}
+
+.footer-content .footer-center i {
+    color: wheat;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+
+}
+
+.footer-content .footer-center i.fa-envelope {
+    font-size: 28px;
+    line-height: 42px;
+}
+
+.footer-content .footer-center p {
+    display: inline-block;
+    color: rgb(121, 179, 14);
+    vertical-align: middle;
+    margin: 0;
+}
+
+.footer-content .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 2;
+}
+.footer-distributed .footer-center p a {
+    color: #e0ac1c;
+    text-decoration: none;
+    ;
+}
+
+
+/* Footer Right */
+
+.footer-content .footer-right {
+    width: 30%;
+}
+
+.footer-content .footer-company-about {
+    line-height: 20px;
+    color: rgb(121, 179, 14);
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-content .footer-company-about span {
+    display: block;
+    color: rgb(121, 179, 14);
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+
+
+   
+        

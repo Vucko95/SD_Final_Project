@@ -5,11 +5,13 @@
     width: 100%;
     }
 .listing_box {
+    background-color: wheat;
     width: 80%;
     /* position: absolute; */
     border: 2px solid black;
-
-    
+}
+.listing_box label {
+    /* font-size: medium; */
 }
 
 .listing_text_headlines {

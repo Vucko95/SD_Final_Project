@@ -1,4 +1,7 @@
 html,
 body {
   width: 100%;
+  /* background-color : unset ; */
+  background-color: rgb(5, 60, 5) ;
+
 }

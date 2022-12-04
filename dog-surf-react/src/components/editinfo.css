@@ -1,0 +1,22 @@
+.Auth-form-container2 {
+    margin-top: 2vh;
+    display: flex;
+    /* position: absolute; */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+  }
+
+  .Auth-form-content2 {
+    width: 420px;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    background-color: wheat;
+    padding-left: 12%;
+    padding-right: 12%;
+
+  }
+  

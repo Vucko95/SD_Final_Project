@@ -6,9 +6,9 @@ export default function Editinfo (props) {
 
 
   return (
-    <div className="Auth-form-container">
+    <div className="Auth-form-container2">
       <form className="Auth-form">
-        <div className="Auth-form-content">
+        <div className="Auth-form-content2">
           <h3 className="Auth-form-title">Edit INFO</h3>
           <div className="form-group mt-3">
             <label>Firstname</label>
