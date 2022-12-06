@@ -10,7 +10,7 @@ return (
         <div className="blog">
                 <div className="blog_1">
                         <div className="part1">
-                        <img src={cv2} className="part1img"   />
+                        <img alt="" src={cv2} className="part1img"   />
                         </div>
                         <div className="part2">
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi debitis autem suscipit odit maiores placeat minima consequatur aliquam, quae cum veniam architecto eos animi quaerat labore ut, totam ratione! Eaque?</p>

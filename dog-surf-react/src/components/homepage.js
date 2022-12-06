@@ -12,8 +12,8 @@ export default function homepage () {
 
         <section class="banner"> 
         <div className="Banner">
-            <img src={dog_logo}   />
-            <img src={cv2}   />
+            <img alt="" src={dog_logo}   />
+            <img alt="" src={cv2}   />
                 <div className="Banner-text">
                     <p>Pet First Approach to Accomodation</p>
 
@@ -48,15 +48,15 @@ export default function homepage () {
         <h1>Our happy dogs</h1>
     <div className="rows"> 
         <div className="col-in-row pic-in-row">
-        <img src={dog1}   />
+        <img alt="" src={dog1}   />
         <h1>Dusan</h1>
         </div>
         <div className="col-in-row pic-in-row">
-        <img src={dog2}   />
+        <img alt="" src={dog2}   />
         <h1>Mujo</h1>
         </div>
         <div className="col-in-row pic-in-row">
-        <img src={dog3}   />
+        <img alt="" src={dog3}   />
         <h1>Nedeljko Radic</h1>
         </div>
 
