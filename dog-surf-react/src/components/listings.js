@@ -39,18 +39,18 @@ import './listings.css';
         <div className="Auth-form-content"> */}
                 <h3 className="Auth-form-title">Listing of all properties</h3>
                 <div className="listing_text_headlines">
+                    <label className="label_l_id">ID</label>
                     <label className="label_l">Property Location</label>
                     <label className="label_l">Property address</label>
                 
-                    <label className="label_l">Date</label>
                     <button className="button_invisible ">BOOK</button>
                 </div>
                 
                 { properties.map((property) => (
                     <div className='db_input' key={property.id}>
+                        <label className="label_l_id">{property.id}</label>
                         <label className="label_d">{property.propertyLocation}</label>
                         <label className="label_d">{property.propertyAddress}</label>
-                        <label className="label_d">{property.id}</label>
                         <button className="button_d btn btn-primary"
                               
                         >BOOK
