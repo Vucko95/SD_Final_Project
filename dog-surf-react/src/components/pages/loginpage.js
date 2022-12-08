@@ -1,9 +1,10 @@
 // import react,{useState} from 'react';
 import {loginfunc} from '../api/loginapi';
+// import {useHistory} from 'react-router-dom';
 
 const LoginPage = () => {
 
-
+    // const history = useHistory();
     function handleSubmit(event) {
     
       event.preventDefault();
