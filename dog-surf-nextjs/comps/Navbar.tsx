@@ -20,6 +20,7 @@ const Navbar = () => {
   // }
   const handleLogoutClick = () => {
     sessionStorage.removeItem('username');
+    sessionStorage.removeItem('user_id');
     setShowLogoutButton(false);
   };
   // useEffect(() => {

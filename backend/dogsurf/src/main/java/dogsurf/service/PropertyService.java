@@ -66,4 +66,6 @@ public class PropertyService {
 
     }
 
+//    public PropertyResponse bookProperty(Long propertyID)
+
 }

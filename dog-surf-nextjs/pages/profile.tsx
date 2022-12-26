@@ -5,16 +5,17 @@ import { useEffect, useState, ReactElement } from 'react'
 import cv2 from '../public/images/cv2.png'
 const Profile = () => { 
     // const [user, setUser] = useState(null);
-    const user_id = sessionStorage.getItem('user_id');
-    console.log(user_id)
+    // const user_id = sessionStorage.getItem('user_id');
+    // console.log(user_id)
     // const [profileinfo, setProfileinfo] = useState<any[]>([]);
     // const [responseData, setResponseData] = useState(null);
     const [user, setUser] = useState<User | null>(null);
     const [updateMessage, setUpdateMessage] = useState('');
     const [updateMessageProperty, setUpdateMessageProperty] = useState('');
-
+    // console.log(user_id)
     const getUser = async () => {
-        const user_id = sessionStorage.getItem('user_id');
+      const user_id = sessionStorage.getItem('user_id');
+        // const user_id = sessionStorage.getItem('user_id');
         console.log(user_id)
         // const res = await fetch('http://localhost:8090/api/v1/users/2');
         const res = await fetch('http://localhost:8090/api/v1/users/' + user_id);
@@ -46,6 +47,7 @@ const Profile = () => {
 
 
       const updateUser = async () => {
+        const user_id = sessionStorage.getItem('user_id');
         if (user) {
           const updatedUser = {
             username: user.username,
@@ -55,7 +57,7 @@ const Profile = () => {
             city: user.city,
             address: user.address,
           };
-          const res = await fetch('http://localhost:8090/api/v1/users/2', {
+          const res = await fetch(('http://localhost:8090/api/v1/users/' + user_id), {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -70,12 +72,13 @@ const Profile = () => {
       }
 
       const updateUserProperty = async () => {
+        const user_id = sessionStorage.getItem('user_id');
         if (user) {
           const updatedUserProperty = {
             propertyLocation: user.property.propertyLocation,
             propertyAddress: user.property.propertyAddress,
           };
-          const res = await fetch('http://localhost:8090/api/v1/users/2/property', {
+          const res = await fetch('http://localhost:8090/api/v1/users/' + user_id + '/property', {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -107,7 +110,7 @@ const Profile = () => {
     <div className={styles2.wrapper_parent}>
             <div className={styles2.wrapper_left_pic}>
             
-            <img alt="test" src="/images/bone.png"  />
+            <img alt="test" src="/images/cartoon.png"  />
             </div>
             <div className={styles2.wrapper1}>
         
@@ -168,9 +171,16 @@ const Profile = () => {
                 <button className={styles.form_button} >Profile</button>
             
             </div> */}
-            <div className={styles2.wrapper_right_pic}>
-            
-            <img alt="test" src="/images/cartoon.png"  />
+            <div className={styles2.wrapper1}>
+
+            {/* <div className={styles2.booked_box}> */}
+            <h1>Booked  Property</h1>
+            <input className={styles.form_inputs} value="Some Location"  type="text" />
+            <input className={styles.form_inputs} value="Some Address"  type="text" />
+            <input className={styles.form_inputs} value="Date"  type="text" />
+
+            {/* <img alt="test" src="/images/cartoon.png"  /> */}
+            {/* </div> */}
             </div>
     </div>
     <div className={styles2.profile_bottom_box}>

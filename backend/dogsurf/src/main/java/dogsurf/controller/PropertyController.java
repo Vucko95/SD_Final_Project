@@ -33,4 +33,11 @@ public class PropertyController {
     public PropertyResponse updatePropertyOfUser(@PathVariable Long userId,@Valid @RequestBody PropertyRequest property) {
         return propertyService.updatePropertyOfUser(userId, property);
     }
+
+//    @PostMapping("/properties/{propertyId}/book")
+//    public PropertyResponse bookProperty(@PathVariable("propertyId") Long propertyID) {
+//        return propertyService.bookProperty(propertyID);
+//    }
+
+
 }

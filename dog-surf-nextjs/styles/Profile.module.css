@@ -32,12 +32,12 @@
 .wrapper_left_pic img {
     width: 200px;
 }
-.wrapper_right_pic {
-    width: 15%;
+.booked_box {
+    width: 25%;
 }
-.wrapper_right_pic img {
+/* .wrapper_right_pic img {
     width: 200px;
-}
+} */
 .wrapper1 {
     width: 430px;
     padding: 2rem 1rem;
