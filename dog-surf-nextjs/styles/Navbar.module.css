@@ -1,0 +1,90 @@
+.navcontent{
+    /* margin: 10px auto 80px; */
+    /* padding: 10px 0; */
+    /* background-color: black; */
+    display: flex;
+    height: 80px;
+    background: linear-gradient(90deg, rgb(8, 22, 27) 0%, rgb(7, 8, 42) 100%);
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+  }
+  .navcontent h3 {
+    color: #ffffff;
+    padding-left: 40px;
+    font: normal 2rem 'Cookie', cursive;
+
+    margin: 0;
+}
+.navcontent img {
+    height: 35px;
+}
+
+/* .nanav_middle_elements {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+} */
+.nav_links {
+    padding-right: 30px;
+  
+}
+.nav_links a {
+    color: white;
+    font-size: 2rem;
+}
+.navadditionals {
+    padding-right: 30px;
+}
+.navadditionals a {
+    color: wheat;
+    font-size: 1.5rem;
+    border: solid;
+    padding: 5px 15px;
+    border-radius: 10px;
+    /* padding-right: 20px; */
+}
+.nav_2nd_dog_pic {
+    margin-right: 14.5%;
+    
+}
+  .navcontent a {
+    margin-left: 20px;
+  }
+  .navcontent .logo {
+    margin-right: auto;
+    /* margin-left: auto; */
+  }
+  
+  .navadditionalslogout {
+    padding-right: 30px;
+    /* flex-direction: row; */
+    /* width: 100px; */
+    display: flex;
+    /* position: block; */
+    float: left;
+    /* display: inline; */
+    
+    /* width: 100%; */
+    /* padding-right: 30px; */
+    /* font-size: 1.5rem; */
+    /* border: solid; */
+    /* padding: 5px 15px; */
+    /* border-radius: 10px; */
+  }
+  .navadditionalslogout button {
+    color: black;
+    font-size: 1.2rem;
+    background-color: wheat;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .navadditionalslogout p {
+    margin: 0;
+    color: wheat;
+    font-size: 1.5rem;
+    /* border: solid; */
+    padding: 5px 15px;
+    /* border-radius: 10px; */
+  }

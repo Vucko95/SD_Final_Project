@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+body {
+/* background-color: aqua; */
+  margin: 0;
+  background: url('/images/paws3.png');
+  /* background: #f2f2f2; */
+  /* height: 100vh; */
+  color: #333;
+
+  font-family: "Nunito";
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+.content {
+  color: #333;
+  /* background-image: url('/dog-surf/public/images/dog_logo.png') no-repeat center bottom/cover; */
+  /* border-right: 10p solid black; */
+  background-color: rgba(237, 241, 171, 0.91);
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+
