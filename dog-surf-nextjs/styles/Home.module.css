@@ -3,7 +3,7 @@
 .Banner {
   width: 100%;
   /* margin: 0; */
-  height: 350px;
+  height: 400px;
   display: flex;
   text-align: center;
   /* justify-content: center; */
@@ -13,7 +13,9 @@
   /* z-index:-1;   */
 }
 .Banner img {
+  /* overflow: hidden; */
   width: 100%;
+  /* margin: 0; */
   /* padding-top: 10px; */
   /* border-radius: 50px; */
   height: 100%;
@@ -23,13 +25,13 @@
   position: absolute;
 }
 .Bannertext h1 {
-  color: black;
+  color: white;
   font-size: 3rem;
   margin-left: 10%;
 }
 .Bannertext p {
   margin-left: 10%;
-  color: black;
+  color: white;
   font-size: 2rem;
 }
 

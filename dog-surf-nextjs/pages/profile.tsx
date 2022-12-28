@@ -12,9 +12,11 @@ const Profile = () => {
     const [user, setUser] = useState<User | null>(null);
     const [updateMessage, setUpdateMessage] = useState('');
     const [updateMessageProperty, setUpdateMessageProperty] = useState('');
+    const [updateUserr, setUpdatUserr] = useState('');
     // console.log(user_id)
     const getUser = async () => {
       const user_id = sessionStorage.getItem('user_id');
+      if (user_id) {
         // const user_id = sessionStorage.getItem('user_id');
         console.log(user_id)
         // const res = await fetch('http://localhost:8090/api/v1/users/2');
@@ -23,7 +25,10 @@ const Profile = () => {
         setUser(data as User);
         // return true
       }
-    
+      else {
+        setUpdatUserr('Please Login First to display information');
+      }
+    }
   
     // useEffect(() => {
     //   getUser();
@@ -110,11 +115,12 @@ const Profile = () => {
     <div className={styles2.wrapper_parent}>
             <div className={styles2.wrapper_left_pic}>
             
-            <img alt="test" src="/images/cartoon.png"  />
+            <img alt="test" src="/images/dog_left2.png"  />
             </div>
             <div className={styles2.wrapper1}>
         
                 <h1>Edit Profile</h1>
+                   <div ><h3>{updateUserr}</h3></div>
                 {/* <button onClick={handleButtonClick}>BUTTON BRO</button> */}
 
 
@@ -186,8 +192,7 @@ const Profile = () => {
     <div className={styles2.profile_bottom_box}>
 
       <img alt="test" src="/images/book.png"  />
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit optio nulla, esse ducimus sapiente suscipit. Quae, optio harum cumque voluptate voluptatem rerum. Eligendi dolore nemo excepturi eveniet laborum loremillo provident!Lorem
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, minus numquam veritatis sunt molestiae iure provident, ipsa, in fugit sequi esse repellat quae molestias voluptates odit nihil? Veritatis, voluptatibus velit!
+        <p>This section provides real-time information editing
         </p>
     </div>
 

@@ -18,11 +18,11 @@
 
 
  .footerleft {
-    width: 50%;
+    width: 30%;
 }
 
 .footerright {
-    width: 50%;
+    width: 40%;
 }
 
 .footercontent h3 {
@@ -51,6 +51,14 @@
 
 
 
+.footermiddle {
+    width: 30%;
 
-   
+}
+.footermiddle img {
+height: 150px;
+/* align-items: centerj; */
+justify-content: center;
+margin-left: 30%;
+}
         

@@ -30,7 +30,8 @@
     width: 15%;
 }
 .wrapper_left_pic img {
-    width: 200px;
+    width: 270px;
+    height: 200px;
 }
 .booked_box {
     width: 25%;
@@ -73,6 +74,10 @@
 }
 .wrapper2 , .wrapper1 h1 {
     color: whitesmoke;
+}
+.wrapper1 h3 {
+    color: red;
+    font-size: 1.3rem;
 }
 .profile_bottom_box {
     width: 100%;

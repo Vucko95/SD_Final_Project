@@ -11,7 +11,7 @@ const homee = () => {
 <section > 
 <div className={styles.Banner}>
     {/* <img alt="" src={dog_logo}   /> */}
-    <img alt="test" src="/images/dog_bannerr.png"  />
+    <img alt="test" src="/images/dog-banner23.jpg"  />
         {/* <div className="Banner-text"> */}
         <div className={styles.Bannertext}>
         <h1>Welcome to DogSurf</h1>
