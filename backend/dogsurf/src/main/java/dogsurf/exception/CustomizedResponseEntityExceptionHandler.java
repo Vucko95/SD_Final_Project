@@ -31,7 +31,11 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
         ExceptionResponse exceptionResponse = new ExceptionResponse(LocalDateTime.now(), ex.getMessage(), webRequest.getDescription(false));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionResponse);
     }
-
+    @ExceptionHandler({PropertyBookingException.class})
+    public ResponseEntity<ExceptionResponse> handlePropertyBookingException(Exception ex, WebRequest webRequest) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(LocalDateTime.now(), ex.getMessage(), webRequest.getDescription(false));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionResponse);
+    }
     @Override
         protected ResponseEntity<Object> handleMethodArgumentNotValid(
                 MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {

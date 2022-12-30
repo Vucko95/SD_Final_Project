@@ -1,6 +1,6 @@
 package dogsurf.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,7 +8,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-//@JsonProperty("field_name")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "users")
@@ -20,7 +19,6 @@ public class User {
     private Long id;
     @Column(name = "username", unique = true, nullable = false, length = 255)
     private String username;
-//    @Column(name = "password", nullable = false)
     @Column(name = "password")
     private String password;
     @Column(name = "email", nullable = false)
@@ -40,4 +38,8 @@ public class User {
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
     private Property property;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "bookedBy")
+    private Property bookedProperty;
+
 }

@@ -43,16 +43,7 @@ public class SecurityConfig {
         return http.build();
     }
 
-//    @Bean
-//    PasswordEncoder passwordEncoder() {
-//        String idForEncode = "bcrypt";
-//        Map<String, PasswordEncoder> encoders = new HashMap<>();
-//        encoders.put(idForEncode, new BCryptPasswordEncoder());
-//        encoders.put("noop", NoOpPasswordEncoder.getInstance());
-//        encoders.put("pbkdf2", new Pbkdf2PasswordEncoder());
-//        encoders.put("scrypt", new SCryptPasswordEncoder());
-//        return new DelegatingPasswordEncoder(idForEncode, encoders);
-//    }
+
 @Bean
 public static NoOpPasswordEncoder passwordEncoder() {
     return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();

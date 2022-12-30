@@ -14,4 +14,5 @@ public class UserResponse {
     private String address;
     private Role role;
     private PropertyResponse property;
+    private PropertyResponse bookedProperty;
 }

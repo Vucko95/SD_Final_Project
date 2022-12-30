@@ -7,7 +7,6 @@ import org.mapstruct.Mapper;
 
 @Mapper
 public interface PropertyMapper {
-
     PropertyResponse toDto(Property entity);
     Property toEntity(PropertyRequest propertyRequest);
 }

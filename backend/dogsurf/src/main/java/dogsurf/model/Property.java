@@ -24,4 +24,10 @@ public class Property {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+
+    @ToString.Exclude
+    @OneToOne
+    @JoinColumn(name = "booked_by_id")
+    private User bookedBy;
 }

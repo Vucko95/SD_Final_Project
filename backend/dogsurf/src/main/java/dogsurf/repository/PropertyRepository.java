@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface PropertyRepository extends JpaRepository<Property, Long> {
     Optional <Property> findByUserId(Long userId);
+    Optional <Property> findByBookedById(Long userId);
 }
