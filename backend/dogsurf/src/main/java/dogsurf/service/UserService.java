@@ -8,7 +8,7 @@ import dogsurf.model.User;
 import dogsurf.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;

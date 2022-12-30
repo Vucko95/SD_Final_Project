@@ -1,44 +1,44 @@
 package dogsurf.service;
 
-import dogsurf.dto.*;
+import dogsurf.dto.CreateUserRequest;
+import dogsurf.dto.JwtResponse;
+import dogsurf.dto.LoginRequest;
+import dogsurf.dto.UserResponse;
 import dogsurf.mapper.UserMapper;
 import dogsurf.model.User;
 import dogsurf.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
 import dogsurf.security.JwtProvider;
-import dogsurf.security.UserPrincipal;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import javax.persistence.EntityNotFoundException;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
 
-    private final AuthenticationManager authenticationManager;
     private final JwtProvider jwtProvider;
     private final UserRepository userRepository;
     private final UserMapper userMapper;
-    private final PasswordEncoder passwordEncoder;
+
     @Override
     public JwtResponse signIn(LoginRequest loginRequest) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword())
-        );
 
-        UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
-//        String jwt = jwtProvider.generateToken(userPrincipal);
-        String jwt = jwtProvider.generateAccessToken(userPrincipal);
-        String refreshToken = jwtProvider.generateRefreshToken(userPrincipal);
+        User user = userRepository
+                .findOneByUsername(loginRequest.getUsername())
+                .orElseThrow(() -> new EntityNotFoundException("Username or password incorrect"));
 
-        UserResponse userResponse = userMapper.toDto(userPrincipal.getUser());
+        if (!Objects.equals(loginRequest.getPassword(), user.getPassword())) {
+            throw new EntityNotFoundException("Username or password incorrect");
+        }
+
+        String jwt = jwtProvider.generateAccessToken(user);
+
+        UserResponse userResponse = userMapper.toDto(user);
         return JwtResponse.builder()
                 .accessToken(jwt)
                 .expiresIn(jwtProvider.getExpiresInSeconds(jwt))
-                .refreshToken(refreshToken)
-                .refreshExpiresIn(jwtProvider.getExpiresInSeconds(refreshToken))
                 .userResponse(userResponse)
                 .build();
     }
@@ -48,8 +48,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public JwtResponse register(CreateUserRequest userRequest) {
         User user = userMapper.toEntity(userRequest);
         String rawPassword = userRequest.getPassword();
-        String encodedPassword = passwordEncoder.encode(rawPassword);
-        user.setPassword(encodedPassword);
+        user.setPassword(rawPassword);
         User saved = userRepository.save(user);
 
         LoginRequest loginRequest = LoginRequest.builder()

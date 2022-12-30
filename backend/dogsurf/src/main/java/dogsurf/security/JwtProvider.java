@@ -1,14 +1,11 @@
 package dogsurf.security;
-import org.springframework.security.core.Authentication;
-import javax.servlet.http.HttpServletRequest;
+
+import dogsurf.model.User;
+
 public interface JwtProvider {
-//    String generateToken(UserPrincipal auth);
-    String generateAccessToken(UserPrincipal auth);
+
+    String generateAccessToken(User user);
 
     Long getExpiresInSeconds(String token);
-    Authentication getAuthentication(HttpServletRequest request);
 
-    boolean isTokenValid(HttpServletRequest request);
-
-    String generateRefreshToken(UserPrincipal auth);
 }

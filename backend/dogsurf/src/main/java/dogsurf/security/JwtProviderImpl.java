@@ -1,48 +1,36 @@
 package dogsurf.security;
 
 
+import dogsurf.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.http.HttpServletRequest;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Component
 public class JwtProviderImpl implements JwtProvider {
 
     @Value("${app.jwt.secret}")
     private String jwtSecret;
-    @Value("${app.jwt.expiration-in-ms:3000}")
+    @Value("${app.jwt.expiration-in-ms:86_400_000}")
     private Long jwtExpirationInMs;
-    @Value("${app.jwt.refresh-expiration-in-ms:86400000}")
-    private Long refreshExpirationInMs;
 
     @Override
-    public String generateAccessToken(UserPrincipal auth) {
-        String authorities = auth.getAuthorities()
-                .stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.joining(","));
+    public String generateAccessToken(User user) {
+        String authorities = "ROLE_" + user.getRole();
 
         Key key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
 
         return Jwts.builder()
-                .setSubject(auth.getUsername())
+                .setSubject(user.getUsername())
                 .claim("roles", authorities)
-                .claim("userId", auth.getId())
+                .claim("userId", user.getId())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + jwtExpirationInMs))
                 .signWith(key, SignatureAlgorithm.HS512)
@@ -57,61 +45,6 @@ public class JwtProviderImpl implements JwtProvider {
         return Math.round(1.0 * (expTime - currentTime) / 1000);
     }
 
-    @Override
-    public Authentication getAuthentication(HttpServletRequest request) {
-        Claims claims = extractClaims(request);
-
-        if (claims == null) {
-            return null;
-        }
-
-        String username = claims.getSubject();
-        Long userId = claims.get("userId", Long.class);
-
-        Set<GrantedAuthority> authorities = Arrays.stream(claims.get("roles").toString().split(","))
-                .map(SecurityUtils::convertToAuthority)
-                .collect(Collectors.toSet());
-
-        UserDetails userDetails = UserPrincipal.builder()
-                .username(username)
-                .authorities(authorities)
-                .id(userId)
-                .build();
-
-        if (username == null) {
-            return null;
-        }
-        return new UsernamePasswordAuthenticationToken(userDetails, null, authorities);
-    }
-
-    @Override
-    public boolean isTokenValid(HttpServletRequest request) {
-        Claims claims = extractClaims(request);
-
-        if (claims == null) {
-            return false;
-        }
-
-        return !claims.getExpiration().before(new Date());
-    }
-    @Override
-    public String generateRefreshToken(UserPrincipal auth) {
-
-        Key key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
-
-        return Jwts.builder()
-                .setSubject(auth.getUsername())
-                .claim("userId", auth.getId())
-                .claim("typ", "Refresh")
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + refreshExpirationInMs))
-                .signWith(key, SignatureAlgorithm.HS512)
-                .compact();
-    }
-    private Claims extractClaims(HttpServletRequest request) {
-        String token = SecurityUtils.extractAuthTokenFromRequest(request);
-        return extractClaims(token);
-    }
     private Claims extractClaims(String token) {
         if (token == null) {
             return null;
