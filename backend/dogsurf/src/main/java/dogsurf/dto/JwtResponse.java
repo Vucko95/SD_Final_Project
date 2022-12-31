@@ -17,8 +17,6 @@ public class JwtResponse {
     private String tokenType =  "Bearer";
     private String accessToken;
     private Long expiresIn;
-    private String refreshToken;
-    private Long refreshExpiresIn;
     @JsonProperty("user")
     private UserResponse userResponse;
 

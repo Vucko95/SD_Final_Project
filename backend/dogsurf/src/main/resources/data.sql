@@ -24,7 +24,9 @@ VALUES
 (9, 'Cambden Pass Apt4', 'Dublin', 'user9@gmail.com', 'Anthony', 'Ibicius',
         'pass9', 'USER', 'user9'),
 (10, 'Mayeston Furen 4', 'Dublin', 'user10@gmail.com', 'Leonardo', 'Gray',
-        'pass10', 'USER', 'user10');
+        'pass10', 'USER', 'user10'),
+(11, 'Densel Corner 32', 'Cork', 'user11@gmail.com', 'Mark', 'Fronter',
+        'pass11', 'USER', 'user11');
 
 
 
