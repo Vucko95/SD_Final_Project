@@ -1,10 +1,10 @@
 import styles from '../styles/Forms.module.css'
-
+import { useEffect, useState, ReactElement } from 'react'
 const Register = () => { 
-   
+    const [updateMessage, setUpdateMessage] = useState('');
+    const [userExsistupdateMessage, setuserExsistupdateMessage] = useState('');
 
     const handleSubmit = async (event) => {
-        // Stop the form from submitting and refreshing the page.
         event.preventDefault()
         const data = {
           username: event.target.username.value,
@@ -25,7 +25,15 @@ const Register = () => {
     const response = await fetch(endpoint, options)
     const result = await response.json()
     console.log(result)
+    if (response.status === 200) {
+        setUpdateMessage('New User Created');
+    } else if (response.status === 400) {
+        setUpdateMessage('Invalid Request');
+    } else {
+        setUpdateMessage('Invalid Request');
+    }
     
+     
 }
 
    
@@ -45,6 +53,8 @@ const Register = () => {
            <input className={styles.form_inputs}  id='address' type="text" placeholder='Address' />
            <button type="submit" className={styles.form_button} >Register</button>
         </form>
+        <div ><h1>{updateMessage}</h1></div>
+        {/* <h2>test</h2> */}
     </div>
 
 
