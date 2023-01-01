@@ -14,6 +14,10 @@ const Profile = () => {
     const [updateMessageProperty, setUpdateMessageProperty] = useState('');
     const [updateUserr, setUpdatUserr] = useState('');
 
+
+    const [addProperty, setaddProperty] = useState('');
+    const [addPropertyAddress, setaddPropertyAddress] = useState('');
+    const [addPropertyLocation, setaddPropertyLocation] = useState('');
     // const [propertyLocation, setPropertyLocation] = useState('');
     // const [propertyAddress, setPropertyAddress] = useState('');
     const [bookedPropertyLocation, setPropertyLocation] = useState<string | null>(null);
@@ -32,6 +36,7 @@ const Profile = () => {
         setUser(data as User);
          if (data.property == null) {
           console.log("NO Property")
+          setaddProperty('Display Add Property')
          }
       }
       else {
@@ -109,20 +114,29 @@ const Profile = () => {
         }
       }
 
-      // const GettBookedProperty = async () => {
-      //   const user_id = sessionStorage.getItem('user_id');
-      //   if (user_id) {
-      //     // const updatedUserProperty = {
-      //     //   propertyLocation: user.property.propertyLocation,
-      //     //   propertyAddress: user.property.propertyAddress,
-      //     const res = await fetch('http://localhost:8090/api/v1/users/' + user_id )
-      //     const data = await res.json();
-      //     console.log(data.bookedProperty)
-      //     setPropertyLocation(data.bookedProperty.propertyLocation);
-      //     setPropertyAddress(data.bookedProperty.propertyAddress);
-  
-        
-      //   };
+      const AddPropertytoUser = async () => {
+        const user_id = sessionStorage.getItem('user_id');
+        if (user) {
+          console.log('Testing')
+          console.log(addPropertyAddress,addPropertyLocation )
+          const addUserProperty = {
+            propertyLocation: addPropertyAddress,
+            propertyAddress: addPropertyLocation,
+          };
+          const res = await fetch('http://localhost:8090/api/v1/users/' + user_id + '/property', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(addUserProperty),
+          });
+          const data = await res.json();
+ 
+          console.log(data)
+          // setUpdateMessageProperty('Property updated');
+        //   return true
+        }
+      }
  
       
   const GettBookedProperty = async () => {
@@ -188,14 +202,9 @@ const Profile = () => {
                 {user.property && (
                     <>
                      <form  action="#">
-                    {/* <label>Property ID: {user.property.id}</label> */}
                     <input className={styles.form_inputs} value={user.property.propertyLocation} onChange={(e) => setUser({ ...user, property: { ...user.property, propertyLocation: e.target.value } })} type="text" placeholder='LastName' />
                     <input className={styles.form_inputs} value={user.property.propertyAddress} onChange={(e) => setUser({ ...user, property: { ...user.property, propertyAddress: e.target.value } })} type="text" placeholder='Email' />
-                    {/* <label>Property Location: {user.property.propertyLocation}</label>
-                    <br />
-                <label>Property Address: {user.property.propertyAddress}</label> */}
                     <button onClick={updateUserProperty} className={styles.form_button} >Update Property Info</button>
-                      {/* <button className={styles.form_button} >Edit</button> */}
                     <div ><h2>{updateMessageProperty}</h2></div>
                     </form>
                 </>
@@ -204,19 +213,29 @@ const Profile = () => {
                 )}
                 </div>
 
-               
-            
+                           
             </div>
-            {/* <div className={styles2.wrapper2}>
-        
-                <h1>Edit Property</h1>
-                <form  action="#">
-                <input className={styles.form_inputs} type="text" placeholder='Property Location' />
-                <input className={styles.form_inputs} type="text" placeholder='Property Address' />
-                </form>
-                <button className={styles.form_button} >Profile</button>
-            
-            </div> */}
+                  <div>
+
+            {addProperty  ? (
+              <>
+            <div className={styles2.wrapper1}>
+
+       
+            <h1>Add  Property</h1>
+            {/* <input className={styles.form_inputs} id="addpropertyaddress" defaultValue={bookedPropertyLocation || ""}  type="text" onChange={(event) => setPropertyAddress(event.target.value)}
+      /> */}
+            <input className={styles.form_inputs} id="addpropertylocation"    defaultValue={addPropertyAddress}  type="text" onChange={(event) => setaddPropertyAddress(event.target.value)} />
+            <input className={styles.form_inputs} id="addpropertylocationh"   defaultValue={addPropertyLocation}  type="text" onChange={(event) => setaddPropertyLocation(event.target.value)} />
+            <button className={styles.form_button} onClick={AddPropertytoUser}>Add Property</button>
+        </div>
+            </>
+      ) : (
+        <h4 ></h4>
+        )}
+        </div>
+
+
             <div className={styles2.wrapper1}>
 
             {/* <div className={styles2.booked_box}> */}
@@ -224,6 +243,7 @@ const Profile = () => {
             <button className={styles.form_button} onClick={GettBookedProperty}>Get Booked Property</button>
             {bookedPropertyLocation && bookedPropertyAddress ? (
               <>
+
             <input className={styles.form_inputs} value={bookedPropertyLocation || ""}  type="text" />
             <input className={styles.form_inputs} value={bookedPropertyAddress || ""}  type="text" />
       
@@ -231,9 +251,9 @@ const Profile = () => {
       ) : (
         <h1>No Properties Booked</h1>
       )}
-            {/* <img alt="test" src="/images/cartoon.png"  /> */}
-            {/* </div> */}
             </div>
+
+            
     </div>
     <div className={styles2.profile_bottom_box}>
 

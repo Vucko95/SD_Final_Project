@@ -30,13 +30,19 @@
     border-radius: 20px;
     outline: none;
     border: none;
-    /* background: rgba(15, 8, 8, 0.274); */
+    background: rgba(15, 8, 8, 0.374);
 }
 .form_inputs::placeholder {
     padding-left: 10px;
     font-size: large;
     font-weight: bold;
     
+}
+.form_inputs[type=text]   {
+    /* padding-left: 10px; */
+    color: white;
+    font-size: large;
+    font-weight: bold;
 }
 
 .form_button {
