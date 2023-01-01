@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react'
 import styles from '../styles/Accomodation.module.css'
 
@@ -46,6 +47,20 @@ const accomodation = () => {
             return data
           }
 
+  
+
+          async function BookProperty(id: string) {
+            console.log(id);
+            const property_id = id
+            const user_id = sessionStorage.getItem('user_id');
+            console.log(user_id);
+            const endpoint = 'http://localhost:8090/api/v1/users/' + user_id + '/book/property/' + property_id ;
+            console.log(endpoint);
+            const options = {method : 'POST'}
+            const response = await fetch(endpoint, options)
+            const result = await response.json()
+            console.log(result)
+          }
 
     return (
 
@@ -90,13 +105,13 @@ const accomodation = () => {
       {/* Only render the list of properties if the "properties" state variable is truthy (not null or undefined) */}
       {properties && properties.map((property: Property) => (
         <div className={styles.db_input} key={property.id}>
+          {/* <form  className={styles.db_input}> */}
+
           <label className={styles.label_l_id}>{property.id}</label>
           <label className={styles.label_d}>{property.propertyLocation}</label>
           <label className={styles.label_d}>{property.propertyAddress}</label>
-          <button className={styles.button3}
-                            
-                            >BOOK
-                            </button>
+          <button type="submit" className={styles.button3}  onClick={() => BookProperty(property.id.toString())} >Book </button>
+               {/* </form> */}
         </div>
       ))}
       {/* Display a loading message if the "properties" state variable is null or undefined */}

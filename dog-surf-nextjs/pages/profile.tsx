@@ -13,6 +13,11 @@ const Profile = () => {
     const [updateMessage, setUpdateMessage] = useState('');
     const [updateMessageProperty, setUpdateMessageProperty] = useState('');
     const [updateUserr, setUpdatUserr] = useState('');
+
+    // const [propertyLocation, setPropertyLocation] = useState('');
+    // const [propertyAddress, setPropertyAddress] = useState('');
+    const [bookedPropertyLocation, setPropertyLocation] = useState<string | null>(null);
+    const [bookedPropertyAddress, setPropertyAddress] = useState<string | null>(null);
     // console.log(user_id)
     const getUser = async () => {
       const user_id = sessionStorage.getItem('user_id');
@@ -99,9 +104,39 @@ const Profile = () => {
         }
       }
 
+      // const GettBookedProperty = async () => {
+      //   const user_id = sessionStorage.getItem('user_id');
+      //   if (user_id) {
+      //     // const updatedUserProperty = {
+      //     //   propertyLocation: user.property.propertyLocation,
+      //     //   propertyAddress: user.property.propertyAddress,
+      //     const res = await fetch('http://localhost:8090/api/v1/users/' + user_id )
+      //     const data = await res.json();
+      //     console.log(data.bookedProperty)
+      //     setPropertyLocation(data.bookedProperty.propertyLocation);
+      //     setPropertyAddress(data.bookedProperty.propertyAddress);
+  
+        
+      //   };
+ 
+      
+  const GettBookedProperty = async () => {
+    const user_id = sessionStorage.getItem('user_id');
+    const res = await fetch('http://localhost:8090/api/v1/users/' + user_id );
+    const data = await res.json();
+   if (data.bookedProperty) {
+      setPropertyLocation(data.bookedProperty.propertyLocation);
+      setPropertyAddress(data.bookedProperty.propertyAddress);
+    } else {
+      setPropertyLocation('not booked yet');
+      setPropertyAddress('not booked yet');
+    }
+        }
+      
 
-
-
+    // useEffect(() => {
+    //   GettBookedProperty();
+    // }, []);
 
 
     return (
@@ -181,10 +216,16 @@ const Profile = () => {
 
             {/* <div className={styles2.booked_box}> */}
             <h1>Booked  Property</h1>
-            <input className={styles.form_inputs} value="Some Location"  type="text" />
-            <input className={styles.form_inputs} value="Some Address"  type="text" />
-            <input className={styles.form_inputs} value="Date"  type="text" />
-
+            <button className={styles.form_button} onClick={GettBookedProperty}>Get Booked Property</button>
+            {bookedPropertyLocation && bookedPropertyAddress ? (
+              <>
+            <input className={styles.form_inputs} value={bookedPropertyLocation || ""}  type="text" />
+            <input className={styles.form_inputs} value={bookedPropertyAddress || ""}  type="text" />
+      
+            </>
+      ) : (
+        <h1>No Properties Booked</h1>
+      )}
             {/* <img alt="test" src="/images/cartoon.png"  /> */}
             {/* </div> */}
             </div>
