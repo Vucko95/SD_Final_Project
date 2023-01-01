@@ -27,8 +27,12 @@ const Profile = () => {
         // const res = await fetch('http://localhost:8090/api/v1/users/2');
         const res = await fetch('http://localhost:8090/api/v1/users/' + user_id);
         const data = await res.json();
+        console.log(data.property)
+        // console.log(data.user.username)
         setUser(data as User);
-        // return true
+         if (data.property == null) {
+          console.log("NO Property")
+         }
       }
       else {
         setUpdatUserr('Please Login First to display information');
@@ -84,6 +88,7 @@ const Profile = () => {
       const updateUserProperty = async () => {
         const user_id = sessionStorage.getItem('user_id');
         if (user) {
+        
           const updatedUserProperty = {
             propertyLocation: user.property.propertyLocation,
             propertyAddress: user.property.propertyAddress,
