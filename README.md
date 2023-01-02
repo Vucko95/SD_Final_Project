@@ -2,8 +2,11 @@
 
 ### Final Project
 
+## Prerequisites
+
 ```
-cd dog-surf-react
-npx create-react-app dog-surf-react
-npm install react-router-dom@5.2.0
+docker-compose up
+npm run dev
+Spring Application Running
+
 ```

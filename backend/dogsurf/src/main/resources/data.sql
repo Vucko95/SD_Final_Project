@@ -1,4 +1,4 @@
--- Users: admin and user1
+
 INSERT INTO users (id, address, city, email, firstname, lastname, password, role, username)
 VALUES (99, 'Dame St, Dublin 2, Ireland', 'Dublin', 'admin@gmail.com', 'Admin',
         'Admin', 'admin', 'ADMIN', 'admin');
@@ -12,7 +12,7 @@ VALUES
 (3, 'Bravbery Mconris 23', 'Galway', 'user3@gmail.com', 'Ivaqn', 'Blackers',
         'pass3', 'USER', 'user3'),
 (4, 'Mitrhil Street 35', 'Cork', 'user4@gmail.com', 'John', 'Livnros',
-        'pass3', 'USER', 'user4'),
+        'pass4', 'USER', 'user4'),
 (5, 'Blacioner  Station 24', 'Dublin', 'user5@gmail.com', 'Gregor', 'Mickeny',
         'pass5', 'USER', 'user5'),
 (6, 'Crindwon Leterver 23', 'Galway', 'user6@gmail.com', 'Bianca', 'Krinovski',
