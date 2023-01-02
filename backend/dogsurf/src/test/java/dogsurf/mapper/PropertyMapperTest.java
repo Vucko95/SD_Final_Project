@@ -13,7 +13,7 @@ class PropertyMapperTest {
     PropertyMapper propertyMapper = new PropertyMapperImpl();
 
     @Test
-    void xmappingFromEntityToDTOWhenPropertyIsNotBooked_shouldReturnCorrectResult() {
+    void mappingFromEntityToDTOWhenPropertyIsNotBooked_shouldReturnCorrectResult() {
         //given
         Long expectedId = 123L;
         String expectedPropertyAddress = "SomeAddress";
@@ -54,8 +54,8 @@ class PropertyMapperTest {
     @Test
     void mappingFromDTOToEntity_shouldReturnCorrectResult() {
         //given
-        String expectedPropertyAddress = "SomeAddress";
-        String expectedPropertyLocation = "SomeLocation";
+        String expectedPropertyAddress = "Mannhattan Street 24";
+        String expectedPropertyLocation = "New York";
         PropertyRequest propertyRequest = new PropertyRequest();
         propertyRequest.setPropertyAddress(expectedPropertyAddress);
         propertyRequest.setPropertyLocation(expectedPropertyLocation);

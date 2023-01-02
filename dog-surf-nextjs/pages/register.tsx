@@ -2,7 +2,7 @@ import styles from '../styles/Forms.module.css'
 import { useEffect, useState, ReactElement } from 'react'
 const Register = () => { 
     const [updateMessage, setUpdateMessage] = useState('');
-    const [userExsistupdateMessage, setuserExsistupdateMessage] = useState('');
+ 
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -54,7 +54,7 @@ const Register = () => {
            <button type="submit" className={styles.form_button} >Register</button>
         </form>
         <div ><h1>{updateMessage}</h1></div>
-        {/* <h2>test</h2> */}
+    
     </div>
 
 

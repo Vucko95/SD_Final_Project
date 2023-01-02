@@ -25,13 +25,11 @@ public class PropertyService {
     private final UserRepository userRepository;
     private final PropertyMapper propertyMapper;
     private final UserMapper userMapper;
-
     public PropertyResponse getPropertyByUserID(Long userId) {
         return propertyRepository.findByUserId(userId)
                 .map(propertyMapper::toDto)
                 .orElseThrow(() -> new EntityNotFoundException("Property not found"));
     }
-
 
     public List<PropertyResponse> getPropertyListing() {
         return propertyRepository.findAll()
@@ -40,7 +38,6 @@ public class PropertyService {
                 .collect(Collectors.toList());
 
     }
-
 
     public PropertyResponse createPropertyOfUser(Long userId, PropertyRequest propertyRequest) {
         if (propertyRepository.findByUserId(userId).isPresent()) {
@@ -54,7 +51,6 @@ public class PropertyService {
         Property saved = propertyRepository.save(property);
         return propertyMapper.toDto(saved);
     }
-
     public PropertyResponse updatePropertyOfUser(Long userId, PropertyRequest propertyRequest) {
         Property property = propertyRepository
                 .findByUserId(userId)
@@ -80,14 +76,11 @@ public class PropertyService {
         }
 
         User bookedBy = property.getBookedBy();
-
         if (bookedBy != null) {
             throw new PropertyBookingException("This property is already booked");
         }
-
         User userWhoWantsToBookThisProperty = userRepository.findById(userId)
                 .orElseThrow(() -> new EntityNotFoundException("User with id `" + userId + "` not found"));
-
         if (userWhoWantsToBookThisProperty.getBookedProperty()!=null){
             throw new PropertyBookingException("The user have already booked a property and can not book any more");
         }
@@ -100,13 +93,11 @@ public class PropertyService {
         return userMapper.toDto(updatedUserWhoBookedTheProperty);
     }
 
-
     public PropertyResponse getPropertyByUserIdWhoBookedIt(Long bookedById) {
         return propertyRepository.findByBookedById(bookedById)
                 .map(propertyMapper::toDto)
                 .orElseThrow(() -> new EntityNotFoundException("User did not book any property"));
     }
-
     public UserResponse removeBookedPropertyFromUser(Long bookedById) {
         Property bookedProperty = propertyRepository.findByBookedById(bookedById)
                 .orElseThrow(() -> new EntityNotFoundException("User did not book any property"));

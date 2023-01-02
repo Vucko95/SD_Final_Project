@@ -72,7 +72,7 @@ const accomodation = () => {
           </div>
           <div className={styles.dog_info_right}>
           <h1>Check out different available properties</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui molestiae ab facere tempora quasi accusantium eaque iste sunt fuga ullam saepe inventore repellendus perferendis quam doloribus, esse ipsum perspiciatis atque.</p>
+          <p>Find a great place where your dog will enjoy!, in such a short amount of time !</p>
           </div>
           </div>
 

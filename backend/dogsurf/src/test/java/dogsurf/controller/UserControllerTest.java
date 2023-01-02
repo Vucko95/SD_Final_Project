@@ -12,13 +12,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import static org.junit.jupiter.api.Assertions.*;
 import dogsurf.model.Role;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-//@TestPropertySource(properties = {
-//        "spring.datasource.url=jdbc:h2:mem:AZ;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE",
-//        "spring.datasource.driverClassName=org.h2.Driver",
-//        "spring.datasource.username=sa",
-//        "spring.datasource.password=",
-//        "spring.jpa.database-platform=org.hibernate.dialect.H2Dialect"
-//})
+
 class UserControllerTest {
 
     @Autowired
@@ -26,29 +20,7 @@ class UserControllerTest {
 
     @Autowired
     WebTestClient webTestClient;
-//    @Test
-//    void simpleDbConfigurationTest() {
-//
-//        //when
-//        Optional<User> userOptional = userRepository.findById(2L);
-//
-//        //then
-//        assertTrue(userOptional.isPresent());
-//
-//        User user = userOptional.get();
-//
-//        assertEquals(2, user.getId());
-//        assertEquals("user2", user.getUsername());
-//        assertEquals("pass2", user.getPassword());
-//        assertEquals("Marion Stret 2", user.getAddress());
-//        assertEquals("Dublin", user.getCity());
-//        assertEquals("user2@gmail.com", user.getEmail());
-//        assertEquals("Niamh", user.getFirstname());
-//        assertEquals("McCortney", user.getLastname());
-//        assertNull(user.getProperty());
-//        assertNull(user.getBookedProperty());
-//
-//    }
+
 
     @Test
     void getUserByIdTest_userPresentWithoutProperty() {
@@ -98,7 +70,6 @@ class UserControllerTest {
                 .jsonPath("$.timestamp").isNotEmpty()
                 .jsonPath("$.message").isEqualTo("User not found")
                 .jsonPath("$.details").isEqualTo("uri=/api/v1/users/500");
-//        {"timestamp":"2022-12-30T15:43:46.0204755","message":"User not found","details":"uri=/api/v1/users/1000000"}
     }
 
 

@@ -4,11 +4,7 @@ import styles2 from '../styles/Profile.module.css'
 import { useEffect, useState, ReactElement } from 'react'
 import cv2 from '../public/images/cv2.png'
 const Profile = () => { 
-    // const [user, setUser] = useState(null);
-    // const user_id = sessionStorage.getItem('user_id');
-    // console.log(user_id)
-    // const [profileinfo, setProfileinfo] = useState<any[]>([]);
-    // const [responseData, setResponseData] = useState(null);
+
     const [user, setUser] = useState<User | null>(null);
     const [updateMessage, setUpdateMessage] = useState('');
     const [updateMessageProperty, setUpdateMessageProperty] = useState('');
@@ -18,21 +14,20 @@ const Profile = () => {
     const [addProperty, setaddProperty] = useState('');
     const [addPropertyAddress, setaddPropertyAddress] = useState('');
     const [addPropertyLocation, setaddPropertyLocation] = useState('');
-    // const [propertyLocation, setPropertyLocation] = useState('');
-    // const [propertyAddress, setPropertyAddress] = useState('');
+
     const [bookedPropertyLocation, setPropertyLocation] = useState<string | null>(null);
     const [bookedPropertyAddress, setPropertyAddress] = useState<string | null>(null);
-    // console.log(user_id)
+
     const getUser = async () => {
       const user_id = sessionStorage.getItem('user_id');
       if (user_id) {
-        // const user_id = sessionStorage.getItem('user_id');
+    
         console.log(user_id)
-        // const res = await fetch('http://localhost:8090/api/v1/users/2');
+ 
         const res = await fetch('http://localhost:8090/api/v1/users/' + user_id);
         const data = await res.json();
         console.log(data.property)
-        // console.log(data.user.username)
+     
         setUser(data as User);
          if (data.property == null) {
           console.log("NO Property")
@@ -44,9 +39,6 @@ const Profile = () => {
       }
     }
   
-    // useEffect(() => {
-    //   getUser();
-    // }, []);
     interface User {
         id: number;
         username: string;
@@ -86,7 +78,7 @@ const Profile = () => {
           const data = await res.json();
           setUser(data as User);
           setUpdateMessage('User updated');
-        //   return true
+   
         }
       }
 
@@ -106,11 +98,11 @@ const Profile = () => {
             body: JSON.stringify(updatedUserProperty),
           });
           const data = await res.json();
-        //   setUser(data as User);
+      
         setUser({ ...user, property: data });
           console.log(data)
           setUpdateMessageProperty('Property updated');
-        //   return true
+      
         }
       }
 
@@ -133,8 +125,7 @@ const Profile = () => {
           const data = await res.json();
  
           console.log(data)
-          // setUpdateMessageProperty('Property updated');
-        //   return true
+
         }
       }
  
@@ -153,9 +144,6 @@ const Profile = () => {
         }
       
 
-    // useEffect(() => {
-    //   GettBookedProperty();
-    // }, []);
 
 
     return (
@@ -163,7 +151,7 @@ const Profile = () => {
 <div  className={styles2.profilecontent}>
     <div className={styles2.title_box}>
 
-    {/* <h1>Profile Information</h1> */}
+
     </div>
 
     <div className={styles2.wrapper_parent}>
@@ -175,19 +163,19 @@ const Profile = () => {
         
                 <h1>Edit Profile</h1>
                    <div ><h3>{updateUserr}</h3></div>
-                {/* <button onClick={handleButtonClick}>BUTTON BRO</button> */}
+         
 
 
                 <div>
     <button className={styles.form_button} onClick={getUser}>Display User Info</button>
     {user && (
             <div>
-                {/* <label>ID: {user.id}</label> */}
+          
                 <br />
                 <input className={styles.form_inputs} value={user.username} onChange={(e) => setUser({ ...user, username: e.target.value })} type="text" placeholder='Username' />
-                {/* <label>Username: {user.username}</label> */}
+        
                 <form  action="#">
-                {/* <input className={styles.form_iuser.emailnputs} value='test' type="text" placeholder='Username' /> */}
+      
                 <input className={styles.form_inputs} value={user.firstname} onChange={(e) => setUser({ ...user, firstname: e.target.value })} type="text" placeholder='Firstname' />
                 <input className={styles.form_inputs} value={user.lastname} onChange={(e) => setUser({ ...user, lastname: e.target.value })} type="text" placeholder='LastName' />
                 <input className={styles.form_inputs} value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })} type="text" placeholder='Email' />
@@ -223,8 +211,7 @@ const Profile = () => {
 
        
             <h1>Add  Property</h1>
-            {/* <input className={styles.form_inputs} id="addpropertyaddress" defaultValue={bookedPropertyLocation || ""}  type="text" onChange={(event) => setPropertyAddress(event.target.value)}
-      /> */}
+  
             <input className={styles.form_inputs} id="addpropertylocation"    defaultValue={addPropertyAddress}  type="text" onChange={(event) => setaddPropertyAddress(event.target.value)} />
             <input className={styles.form_inputs} id="addpropertylocationh"   defaultValue={addPropertyLocation}  type="text" onChange={(event) => setaddPropertyLocation(event.target.value)} />
             <button className={styles.form_button} onClick={AddPropertytoUser}>Add Property</button>
@@ -238,7 +225,7 @@ const Profile = () => {
 
             <div className={styles2.wrapper1}>
 
-            {/* <div className={styles2.booked_box}> */}
+        
             <h1>Booked  Property</h1>
             <button className={styles.form_button} onClick={GettBookedProperty}>Get Booked Property</button>
             {bookedPropertyLocation && bookedPropertyAddress ? (
