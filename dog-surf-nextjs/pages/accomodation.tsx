@@ -3,25 +3,18 @@ import { useEffect, useState } from 'react'
 import styles from '../styles/Accomodation.module.css'
 
 const accomodation = () => {
-    const API_URL = 'http://localhost:8090'
-    // const [properties, setProperties] = useState(null);
+
     const [properties, setProperties] = useState<any[]>([]);
 
 
-    // useEffect(() => {
-    //     async function getData() {
-    //       const data = await getAllProperties()
-    //       setProperties(data)
-    //     }
-    //     getData()
-    //   }, [])
+
 
     useEffect(() => {
         async function getData() {
-          // Use a try-catch block to handle any errors that may occur
           try {
             const data = await getAllProperties() 
             setProperties(data)
+            // console.log(data)
           } catch (error) {
             console.error(error)
           }
@@ -43,6 +36,9 @@ const accomodation = () => {
             const res = await fetch('http://localhost:8090/api/v1/users/properties')
                // Get the response data as a JavaScript object
             const data = await res.json()
+            // console.log(data)
+            // data = data.filter((property: { bookedProperty: null; }) => property.bookedProperty == null);
+            console.log('test')
             console.log(data)
             return data
           }
@@ -90,17 +86,7 @@ const accomodation = () => {
                         <button className={styles.button_invisible }>BOOK</button>
                     </div>
                 
-                {/* { properties.map((property) => (
-                    <div className='db_input' key={property.id}>
-                        <label className="label_l_id">{property.id}</label>
-                        <label className="label_d">{property.propertyLocation}</label>
-                        <label className="label_d">{property.propertyAddress}</label>
-                        <button className="button_d btn btn-primary"
-                            
-                        >BOOK
-                        </button>
-                    </div>
-                ))} */}
+    
    <div>
       {/* Only render the list of properties if the "properties" state variable is truthy (not null or undefined) */}
       {properties && properties.map((property: Property) => (
@@ -117,34 +103,7 @@ const accomodation = () => {
       {/* Display a loading message if the "properties" state variable is null or undefined */}
       {/* {!properties && <p>Loading...</p>} */}
     </div>
-{/* 
-                    <div className={styles.db_input} key="1">
-                        <label className={styles.label_l_id}>1</label>
-                        <label className={styles.label_d}>dasdasdasloremdads</label>
-                        <label className={styles.label_d}>dasdasdasdassda</label>
-                        <button className={styles.button3}
-                            
-                        >BOOK
-                        </button>
-                    </div>
-                    <div className={styles.db_input} key="2">
-                        <label className={styles.label_l_id}>1</label>
-                        <label className={styles.label_d}>dasdasdasdads</label>
-                        <label className={styles.label_d}>dasdasdasdassda</label>
-                        <button className={styles.button3}
-                            
-                        >BOOK
-                        </button>
-                    </div>
-                    <div className={styles.db_input} key="3">
-                        <label className={styles.label_l_id}>1</label>
-                        <label className={styles.label_d}>dasdasdasdads</label>
-                        <label className={styles.label_d}>dasdasdasdassda</label>
-                        <button className={styles.button3}
-                            
-                        >BOOK
-                        </button>
-                    </div> */}
+
             </div>
         
             <div className={styles.listing_bottom_box}>
